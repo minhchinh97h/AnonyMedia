@@ -3,6 +3,12 @@ import { Store } from "redux";
 import { Provider } from "react-redux";
 import withRedux from "next-redux-wrapper";
 import makeStore from '../store';
+import { TestAction } from '../reducers/action-interfaces';
+
+
+const testAction: TestAction = {
+    type: "_test"
+}
 
 interface AppProps {
     store: Store
@@ -10,6 +16,9 @@ interface AppProps {
 
 class MyApp extends App<AppProps> {
     static async getInitialProps({ Component, ctx }: AppContext) {
+
+        ctx.store.dispatch(testAction)
+
         const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {}
 
         return { pageProps }

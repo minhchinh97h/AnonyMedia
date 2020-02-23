@@ -11,7 +11,6 @@ const Header: FunctionComponent = (props: HeaderProps) => {
         <div className="header-container">
             <SearchBar />
 
-
             <style jsx>{`
                     .header-container {
                         display: flex;

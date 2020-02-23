@@ -1,11 +1,18 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Header from "../header/Header";
+import { connect } from "react-redux";
+import { RootState } from "../../reducers";
 
-const Layout: FunctionComponent = (props) => {
+interface LayoutProps {
+    test: string
+}
+
+const Layout = (props: LayoutProps) => {
     return (
         <div>
+            <p>{props.test}</p>
             <Header></Header>
-            {props.children}
+            {}
             <style jsx global>{`
                 * {
                     box-sizing: border-box;
@@ -19,4 +26,8 @@ const Layout: FunctionComponent = (props) => {
     )
 }
 
-export default Layout
+const mapStateToProps = (state: RootState) => ({
+    test: state.test
+})
+
+export default connect(mapStateToProps, null)(Layout)

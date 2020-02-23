@@ -2,9 +2,9 @@ import { FunctionComponent } from "react";
 import Layout from "../components/layout/Layout";
 
 
-const HomePage: FunctionComponent = () => {
+const HomePage = (props: any) => {
   return (
-    <Layout>
+    <Layout {...props}>
     </Layout>
   );
 };
